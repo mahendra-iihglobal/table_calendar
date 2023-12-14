@@ -638,8 +638,6 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
           locale: widget.locale,
         );
 
-        children.add(content);
-
         if (!isDisabled) {
           final events = widget.eventLoader?.call(day) ?? [];
           Widget? markerWidget =
@@ -683,6 +681,8 @@ class _TableCalendarState<T> extends State<TableCalendar<T>> {
             children.add(markerWidget);
           }
         }
+
+        children.add(content);
 
         return Stack(
           alignment: widget.calendarStyle.markersAlignment,
